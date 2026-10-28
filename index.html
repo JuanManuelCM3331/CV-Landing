@@ -13,9 +13,6 @@ html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
 body{background:var(--bg);color:var(--fg);font-family:'Space Grotesk',system-ui,sans-serif;overflow-x:hidden}
 .mono{font-family:'JetBrains Mono',ui-monospace,monospace}
 .tl li li:before{content:none}
-#cvpdf h2{font-size:14px;letter-spacing:.08em;color:#6d28d9;border-bottom:1px solid #d9d9e2;padding-bottom:3px;margin:20px 0 8px;font-weight:700}
-#cvpdf ul{margin:4px 0 0 18px;padding:0;list-style:disc}
-#cvpdf .pb{break-inside:avoid;page-break-inside:avoid;margin-bottom:10px}
 .ic{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .grad{background:linear-gradient(90deg,var(--a),var(--b));-webkit-background-clip:text;background-clip:text;color:transparent}
 .card{background:var(--card);border:1px solid var(--bd);backdrop-filter:blur(10px);border-radius:1.25rem}
@@ -205,34 +202,9 @@ main,header,footer{position:relative;z-index:1}
  <p class="mono text-xs text-[var(--mut)] mt-4"><svg class="ic w-3.5 h-3.5 inline -mt-0.5 mr-1"><use href="#i-pin"/></svg>Cra 71 #37-350, Itagüí, Antioquia</p>
 </section>
 </main>
-<div style="position:fixed;left:-10000px;top:0;width:794px" aria-hidden="true">
-<div id="cvpdf" style="width:794px;background:#fff;color:#1a1a22;font-family:'Space Grotesk',Arial,sans-serif;padding:36px 44px;box-sizing:border-box;font-size:12.5px;line-height:1.5">
- <div style="display:flex;gap:24px;align-items:center;border-bottom:3px solid #6d28d9;padding-bottom:18px">
-  <img alt="" style="width:120px;height:120px;border-radius:50%;object-fit:cover">
-  <div><div style="font-size:34px;font-weight:700;line-height:1.1">Juan M. Cardona</div>
-   <div style="font-size:15px;font-weight:600;color:#6d28d9;margin:4px 0 8px">DESARROLLADOR WEB</div>
-   <div><b>Dirección:</b> Cra 71 #37-350, Itagüí, Antioquia</div>
-   <div><b>Correo electrónico:</b> juanma3331@gmail.com</div>
-   <div><b>GitHub:</b> JuanManuelCM3331</div></div>
- </div>
- <h2>RESUMEN</h2>
- <div class="pb">Estudiante de Tecnología en Análisis y Desarrollo de Software, con formación en fundamentos de programación y desarrollo web. Cuento con conocimientos en lógica de programación, estructuras de control (bucles y ciclos), modelado básico de datos y manejo de bases de datos relacionales y no relacionales como MySQL y MongoDB.</div>
- <h2>EXPERIENCIA</h2>
- <div class="pb"><b>Desarrollador Junior FrontEnd en Formación</b> · 2026 – Presente<ul><li>Desarrollo de páginas web básicas utilizando HTML, CSS, JavaScript y PHP.</li><li>Aplicación de lógica de programación para ejercicios y pequeños proyectos prácticos.</li><li>Creación y consulta de bases de datos en MySQL y MongoDB.</li><li>Participación en trabajos en equipo relacionadas con software.</li><li>Apoyo en pruebas y corrección de errores en los proyectos realizados.</li></ul></div>
- <div class="pb"><b>Prácticas Formativas</b> · 2025<ul><li>Elaboración de ejercicios de programación aplicando ciclos, condicionales y estructuras de datos.</li><li>Diseño de interfaces sencillas enfocadas en organización y claridad visual.</li><li>Desarrollo de pequeños sistemas en consola para gestión de información.</li><li>Documentación básica de los proyectos realizados durante la formación.</li></ul></div>
- <h2>EDUCACIÓN</h2>
- <div class="pb"><b>Servicio Nacional de Aprendizaje (SENA)</b><br>Cursando Tecnología en Análisis y Desarrollo de Software</div>
- <div class="pb"><b>Cursos complementarios</b><ul><li>Conceptualización del Lenguaje de Programación C++</li><li>Variables y Estructuras de Control en la Programación Orientada a Objetos: Java</li></ul></div>
- <div class="pb"><b>Institución Educativa Esteban Ochoa</b><br>Bachiller Técnico en Operación de Eventos · Diciembre 6 del 2024 · I.E. Esteban Ochoa</div>
- <div class="pb"><b>Técnico en Operación de Eventos</b> · Diciembre 6 del 2024 · SENA</div>
- <h2>HABILIDADES</h2>
- <div class="pb">HTML · CSS · JavaScript · React.js · Tailwind CSS · Python · Git y control de versiones · Docker - DevOps · PHP</div>
- <h2>PROYECTOS</h2>
- <div class="pb"><ul><li><b>MediTrack</b> — github.com/JuanManuelCM3331/NewMediTrack</li><li><b>Youth Employment Bridge</b> — github.com/JuanManuelCM3331/Youth-Employment-Bridge</li><li><b>Gestión de Aprendices</b> — github.com/JuanManuelCM3331/New-Gestion-Aprendices</li><li><b>PréstamoLab CTMA</b> — github.com/Ficha-3223875/Prestamo_Lab_CTMA</li><li><b>ReportaCTMA</b> — github.com/Ficha-3223875-FormacionCTMA/Laboratorio_Android_FormacionCTMA</li></ul></div>
-</div></div>
 <footer class="text-center py-8 mono text-xs text-[var(--mut)]">© 2026 Juan M. Cardona · hecho con Tailwind + JavaScript</footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
 const $=s=>document.querySelector(s);
 // tema
@@ -272,18 +244,58 @@ document.querySelectorAll('[data-n]').forEach(el=>{const n=+el.dataset.n;let c=0
   box.innerHTML='<p class="text-sm text-[var(--mut)]">Aquí se calculan los porcentajes reales con la API de GitHub. Esta vista previa no puede conectarse a GitHub; al alojar la página (GitHub Pages, Netlify, Vercel) se activa sola.</p><div class="flex flex-wrap gap-2 mono text-sm">'+['PHP','HTML','Kotlin'].map(k=>`<span class="px-3 py-1.5 rounded-full border border-[var(--bd)]">${k}</span>`).join('')+'</div>';
   if(!window.__img)st.textContent='sin conexión a GitHub';}
 })();
-// exportar PDF
+function buildCvPdf(jsPDF,photo){
+ const doc=new jsPDF({unit:'mm',format:'a4'});
+ const W=210,H=297,M=16;let y=0;
+ const C={ink:[26,26,34],mut:[85,85,100],acc:[109,40,217]};
+ const lh=s=>s*0.45;
+ const ensure=h=>{if(y+h>H-12){doc.addPage();y=M}};
+ // cabecera
+ doc.setFillColor(24,22,36);doc.rect(0,0,W,54,'F');
+ doc.setFillColor(167,139,250);doc.circle(W-M-17,27,17.4,'F');
+ if(photo)doc.addImage(photo,'PNG',W-M-34,10,34,34*1);
+ doc.setFont('helvetica','bold');doc.setFontSize(27);doc.setTextColor(255,255,255);doc.text('Juan M. Cardona',M,22);
+ doc.setFontSize(12);doc.setTextColor(167,139,250);doc.text('DESARROLLADOR WEB',M,30);
+ doc.setFont('helvetica','normal');doc.setFontSize(9);doc.setTextColor(225,225,235);
+ doc.text('Dirección: Cra 71 #37-350, Itagüí, Antioquia',M,38);
+ doc.text('Correo electrónico: juanma3331@gmail.com',M,43);
+ doc.text('GitHub: JuanManuelCM3331',M,48);
+ y=64;
+ const section=t=>{ensure(30);y+=6;doc.setFont('helvetica','bold');doc.setFontSize(11);doc.setTextColor(...C.acc);doc.text(t,M,y);doc.setDrawColor(...C.acc);doc.setLineWidth(.4);doc.line(M,y+1.8,W-M,y+1.8);y+=7};
+ const para=(t,o={})=>{const s=o.size||10,ind=o.indent||0;doc.setFont('helvetica',o.bold?'bold':'normal');doc.setFontSize(s);doc.setTextColor(...(o.color||C.ink));const L=doc.splitTextToSize(t,W-2*M-ind);ensure(L.length*lh(s));doc.text(L,M+ind,y+s*0.32);y+=L.length*lh(s)+(o.gap??1.5)};
+ const bullet=t=>{const s=10;doc.setFont('helvetica','normal');doc.setFontSize(s);doc.setTextColor(...C.ink);const L=doc.splitTextToSize(t,W-2*M-7);ensure(L.length*lh(s));doc.setFillColor(...C.acc);doc.circle(M+2,y+s*0.32-1,.6,'F');doc.text(L,M+6,y+s*0.32);y+=L.length*lh(s)+1.2};
+ const head=(t,sub)=>{ensure(18);para(t,{bold:true,size:10.5,gap:.5});if(sub)para(sub,{color:C.mut,size:9,gap:1.5})};
+ section('RESUMEN');
+ para('Estudiante de Tecnología en Análisis y Desarrollo de Software, con formación en fundamentos de programación y desarrollo web. Cuento con conocimientos en lógica de programación, estructuras de control (bucles y ciclos), modelado básico de datos y manejo de bases de datos relacionales y no relacionales como MySQL y MongoDB.');
+ section('EXPERIENCIA');
+ head('Desarrollador Junior FrontEnd en Formación','2026 - Presente');
+ ['Desarrollo de páginas web básicas utilizando HTML, CSS, JavaScript y PHP.','Aplicación de lógica de programación para ejercicios y pequeños proyectos prácticos.','Creación y consulta de bases de datos en MySQL y MongoDB.','Participación en trabajos en equipo relacionadas con software.','Apoyo en pruebas y corrección de errores en los proyectos realizados.'].forEach(bullet);
+ y+=2;head('Prácticas Formativas','2025');
+ ['Elaboración de ejercicios de programación aplicando ciclos, condicionales y estructuras de datos.','Diseño de interfaces sencillas enfocadas en organización y claridad visual.','Desarrollo de pequeños sistemas en consola para gestión de información.','Documentación básica de los proyectos realizados durante la formación.'].forEach(bullet);
+ section('EDUCACIÓN');
+ head('Servicio Nacional de Aprendizaje (SENA)','Cursando Tecnología en Análisis y Desarrollo de Software');
+ head('Cursos complementarios');
+ ['Conceptualización del Lenguaje de Programación C++','Variables y Estructuras de Control en la Programación Orientada a Objetos: Java'].forEach(bullet);
+ y+=2;head('Institución Educativa Esteban Ochoa','Bachiller Técnico en Operación de Eventos - Diciembre 6 del 2024 - I.E. Esteban Ochoa');
+ head('Técnico en Operación de Eventos','Diciembre 6 del 2024 - SENA');
+ section('HABILIDADES');
+ para('HTML  |  CSS  |  JavaScript  |  React.js  |  Tailwind CSS  |  Python  |  Git y control de versiones  |  Docker - DevOps  |  PHP');
+ section('PROYECTOS');
+ [['MediTrack','JuanManuelCM3331/NewMediTrack'],['Youth Employment Bridge','JuanManuelCM3331/Youth-Employment-Bridge'],['Gestión de Aprendices','JuanManuelCM3331/New-Gestion-Aprendices'],['PréstamoLab CTMA','Ficha-3223875/Prestamo_Lab_CTMA'],['ReportaCTMA','Ficha-3223875-FormacionCTMA/Laboratorio_Android_FormacionCTMA']].forEach(([n,u])=>{
+  ensure(10);para(n,{bold:true,gap:0});doc.setFont('helvetica','normal');doc.setFontSize(8.5);doc.setTextColor(...C.acc);doc.textWithLink('github.com/'+u,M,y+3,{url:'https://github.com/'+u});y+=6});
+ return doc;
+}
+
 document.querySelectorAll('.js-pdf').forEach(btn=>btn.addEventListener('click',async()=>{
  const lbl=btn.querySelector('span'),old=lbl.textContent;
- if(typeof html2pdf==='undefined'){window.print();return}
  btn.disabled=true;lbl.textContent='Generando PDF…';
  try{
-  const el=document.getElementById('cvpdf');el.querySelector('img').src=document.querySelector('#ph img').src;
-  const name='CV_Juan_M_Cardona.pdf';
-  const w=html2pdf().set({margin:[8,8,8,8],filename:name,image:{type:'jpeg',quality:.95},html2canvas:{scale:2,backgroundColor:'#ffffff'},jsPDF:{unit:'mm',format:'a4',orientation:'portrait'},pagebreak:{mode:['css','legacy'],avoid:['.pb']}}).from(el);
+  const img=document.querySelector('#ph img'),c=document.createElement('canvas');c.width=c.height=360;
+  const x=c.getContext('2d');x.beginPath();x.arc(180,180,180,0,Math.PI*2);x.clip();x.drawImage(img,0,0,360,360);
+  const doc=buildCvPdf(window.jspdf.jsPDF,c.toDataURL('image/png')),name='CV_Juan_M_Cardona.pdf';
   let dl=null;try{dl=window.claude?await claude.use('downloads'):null}catch(_){}
-  if(dl){const blob=await w.outputPdf('blob');await dl.save({filename:name,data:blob})}else{await w.save()}
- }catch(e){lbl.textContent='No se pudo generar';setTimeout(()=>lbl.textContent=old,2500);btn.disabled=false;return}
+  if(dl){await dl.save({filename:name,data:doc.output('blob')})}else{doc.save(name)}
+ }catch(e){if(!(e&&e.code==='declined')){lbl.textContent='No se pudo generar';await new Promise(r=>setTimeout(r,2200))}}
  lbl.textContent=old;btn.disabled=false;
 }));
 // tilt
