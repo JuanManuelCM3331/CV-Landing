@@ -57,7 +57,7 @@ main,header,footer{position:relative;z-index:1}
    <div class="mt-10 grid grid-cols-3 gap-3 max-w-md">
     <div class="card p-4"><div class="text-3xl font-bold grad" data-n="9">0</div><div class="text-xs text-[var(--mut)]">tecnologías</div></div>
     <div class="card p-4"><div class="text-3xl font-bold grad" data-n="28">0</div><div class="text-xs text-[var(--mut)]">repositorios</div></div>
-    <div class="card p-4"><div class="text-3xl font-bold grad" data-n="3">0</div><div class="text-xs text-[var(--mut)]">proyectos top</div></div>
+    <div class="card p-4"><div class="text-3xl font-bold grad" data-n="5">0</div><div class="text-xs text-[var(--mut)]">proyectos top</div></div>
    </div>
   </div>
   <div class="flex justify-center" style="perspective:900px">
@@ -89,8 +89,8 @@ main,header,footer{position:relative;z-index:1}
 <section id="proyectos" class="max-w-6xl mx-auto py-16">
  <h2 class="text-4xl sm:text-5xl font-bold rev">Proyectos <span class="grad">destacados</span></h2>
  <p class="text-[var(--mut)] mt-3 rev">Los que más me enorgullecen en GitHub. Pasa el cursor, tienen vida propia.</p>
- <div class="grid md:grid-cols-3 gap-6 mt-10" style="perspective:1000px">
-  <a href="https://github.com/JuanManuelCM3331/MediTrack" target="_blank" rel="noopener" class="card tilt p-6 rev block">
+ <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10" style="perspective:1000px">
+  <a href="https://github.com/JuanManuelCM3331/NewMediTrack" target="_blank" rel="noopener" class="card tilt p-6 rev block">
    <div class="text-4xl mb-4">💊</div><h3 class="text-2xl font-bold">MediTrack</h3>
    <p class="text-[var(--mut)] mt-2">Proyecto web de seguimiento médico construido con HTML y diseño enfocado en claridad visual.</p>
    <div class="mt-5 flex gap-2 mono text-xs"><span class="px-2 py-1 rounded-full border border-[var(--bd)]">HTML</span><span class="px-2 py-1 rounded-full border border-[var(--bd)]">CSS</span></div>
@@ -104,6 +104,16 @@ main,header,footer{position:relative;z-index:1}
    <div class="text-4xl mb-4">🛡️</div><h3 class="text-2xl font-bold">Gestión de Aprendices</h3>
    <p class="text-[var(--mut)] mt-2">Sistema de gestión de aprendices, instructores y observaciones, con enfoque en ciberseguridad y DevOps.</p>
    <div class="mt-5 flex gap-2 mono text-xs"><span class="px-2 py-1 rounded-full border border-[var(--bd)]">PHP</span><span class="px-2 py-1 rounded-full border border-[var(--bd)]">DevOps</span><span class="px-2 py-1 rounded-full border border-[var(--bd)]">★ 1</span></div>
+   <p class="mt-5 text-sm grad font-semibold">Ver repo ↗</p></a>
+  <a href="https://github.com/Ficha-3223875/Prestamo_Lab_CTMA" target="_blank" rel="noopener" class="card tilt p-6 rev block">
+   <div class="text-4xl mb-4">🔬</div><h3 class="text-2xl font-bold">PréstamoLab CTMA</h3>
+   <p class="text-[var(--mut)] mt-2">App Android para gestionar préstamos de equipos en un ambiente de aprendizaje: catálogo, solicitudes y cancelaciones con 8 reglas de negocio validadas.</p>
+   <div class="mt-5 flex flex-wrap gap-2 mono text-xs"><span class="px-2 py-1 rounded-full border border-[var(--bd)]">Kotlin</span><span class="px-2 py-1 rounded-full border border-[var(--bd)]">Jetpack Compose</span><span class="px-2 py-1 rounded-full border border-[var(--bd)]">MVVM</span><span class="px-2 py-1 rounded-full border border-[var(--bd)]">★ 1</span></div>
+   <p class="mt-5 text-sm grad font-semibold">Ver repo ↗</p></a>
+  <a href="https://github.com/Ficha-3223875-FormacionCTMA/Laboratorio_Android_FormacionCTMA" target="_blank" rel="noopener" class="card tilt p-6 rev block">
+   <div class="text-4xl mb-4">📱</div><h3 class="text-2xl font-bold">ReportaCTMA</h3>
+   <p class="text-[var(--mut)] mt-2">Proyecto integrador Android offline-first: CRUD de actividades formativas, búsqueda en tiempo real, tema claro/oscuro y sincronización con API REST.</p>
+   <div class="mt-5 flex flex-wrap gap-2 mono text-xs"><span class="px-2 py-1 rounded-full border border-[var(--bd)]">Kotlin</span><span class="px-2 py-1 rounded-full border border-[var(--bd)]">Room</span><span class="px-2 py-1 rounded-full border border-[var(--bd)]">Retrofit</span><span class="px-2 py-1 rounded-full border border-[var(--bd)]">★ 1</span></div>
    <p class="mt-5 text-sm grad font-semibold">Ver repo ↗</p></a>
  </div>
 </section>
@@ -165,8 +175,8 @@ let ri=0,ci=0,del=false;
 // stack
 const bars=[['HTML',90],['CSS',88],['JavaScript',78],['React.js',70],['Tailwind CSS',82],['PHP',72],['Python',68],['Git',75],['Docker · DevOps',55]];
 $('#bars').innerHTML=bars.map(([n,v])=>`<div><div class="flex justify-between mono text-sm mb-1"><span>${n}</span><span class="text-[var(--mut)]">${v}%</span></div><div class="bar h-2 rounded-full" style="background:var(--bd)"><i data-w="${v}"></i></div></div>`).join('');
-$('#chips').innerHTML=['MySQL','MongoDB','SQLite','Java','C++','Laravel','Django','Flask','Angular','Figma','Node.js','VS Code'].map(t=>`<span class="px-3 py-1.5 rounded-full border border-[var(--bd)] hover:border-[var(--a)] hover:-translate-y-1 transition">${t}</span>`).join('');
-const mq=['HTML','CSS','JavaScript','React','Tailwind','PHP','Python','Git','Docker','MySQL','MongoDB'].map(t=>`<span class="card px-6 py-3">${t}</span>`).join('');
+$('#chips').innerHTML=['Kotlin','Jetpack Compose','Android','Room','Retrofit','MySQL','MongoDB','SQLite','Java','C++','Laravel','Django','Flask','Angular','Figma','Node.js','VS Code'].map(t=>`<span class="px-3 py-1.5 rounded-full border border-[var(--bd)] hover:border-[var(--a)] hover:-translate-y-1 transition">${t}</span>`).join('');
+const mq=['HTML','CSS','JavaScript','React','Tailwind','PHP','Python','Git','Docker','Kotlin','Android','MySQL','MongoDB'].map(t=>`<span class="card px-6 py-3">${t}</span>`).join('');
 $('#mq').innerHTML=mq+mq;
 // reveal + contadores + barras
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');e.target.querySelectorAll('[data-w]').forEach(b=>b.style.width=b.dataset.w+'%');io.unobserve(e.target)}}),{threshold:.15});
@@ -189,7 +199,7 @@ rs();addEventListener('resize',rs);addEventListener('pointermove',e=>{m.x=e.clie
   for(let j=i+1;j<P.length;j++){const q=P[j],l=Math.hypot(p.x-q.x,p.y-q.y);if(l<110){cx.globalAlpha=.18*(1-l/110);cx.beginPath();cx.moveTo(p.x,p.y);cx.lineTo(q.x,q.y);cx.stroke()}}});
  requestAnimationFrame(d)})();
 // terminal
-const C={help:'comandos: about, skills, proyectos, contacto, hobby, clear',about:'Juan M. Cardona · Estudiante ADSO (SENA) · Itagüí, Antioquia',skills:'HTML · CSS · JS · React · Tailwind · PHP · Python · Git · Docker',proyectos:'MediTrack · Youth-Employment-Bridge · Gestión de Aprendices',contacto:'juanma3331@gmail.com · github.com/JuanManuelCM3331',hobby:'Videojuegos 🎮 y automatizar todo lo automatizable'};
+const C={help:'comandos: about, skills, proyectos, contacto, hobby, clear',about:'Juan M. Cardona · Estudiante ADSO (SENA) · Itagüí, Antioquia',skills:'HTML · CSS · JS · React · Tailwind · PHP · Python · Git · Docker',proyectos:'MediTrack · Youth-Employment-Bridge · Gestión de Aprendices · PréstamoLab CTMA · ReportaCTMA',contacto:'juanma3331@gmail.com · github.com/JuanManuelCM3331',hobby:'Videojuegos 🎮 y automatizar todo lo automatizable'};
 $('#ci').addEventListener('keydown',e=>{if(e.key!=='Enter')return;const v=e.target.value.trim().toLowerCase();e.target.value='';
  $('#out').textContent=v==='clear'?'':'> '+v+'\n'+(C[v]||'comando no encontrado, escribe help')});
 </script>
